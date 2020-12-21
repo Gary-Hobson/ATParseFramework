@@ -3,6 +3,8 @@
 ##########################################################################################################################
 
 TARGET = ATParse
+CC=gcc
+
 
 DEBUG = 1
 OPT = -O0
@@ -48,9 +50,9 @@ CFLAGS += -MMD -MP -MF"$(@:%.o=%.d)"
 
 #-Wl,--gc-sections 之链接已使用段
 # libraries
-LIBS =  -pthread
+LIBS =   -lpthread
 LIBDIR = $(LIB_DIR)
-LDFLAGS = $(LIBDIR) $(LIBS) -Wl,--gc-sections  -fsanitize=address
+LDFLAGS = $(LIBDIR) $(LIBS) -Wl,--gc-sections 
 
 # default action: build all
 all: $(TARGET) 

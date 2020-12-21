@@ -1,6 +1,6 @@
 #include "serial.h"
 #include <errno.h> 
-
+#include <termios.h>
 
 #define FALSE  -1
 #define TRUE   0
@@ -11,10 +11,10 @@
 *@param  speed  类型 int  串口速度
 *@return  void
 */
-int speed_arr[] = { B38400, B19200, B9600, B4800, B2400, B1200, B300,
+int speed_arr[] = {B921600, B115200, B38400, B19200, B9600, B4800, B2400, B1200, B300,
           B38400, B19200, B9600, B4800, B2400, B1200, B300, };
 
-int name_arr[] = {38400,  19200,  9600,  4800,  2400,  1200,  300, 38400,  
+int name_arr[] = {921600, 115200, 38400,  19200,  9600,  4800,  2400,  1200,  300, 38400,  
                     19200,  9600, 4800, 2400, 1200,  300, };
 
 void serial_baud(int fd, int speed){
@@ -36,6 +36,7 @@ void serial_baud(int fd, int speed){
         return;    
       }    
       tcflush(fd,TCIOFLUSH);   
+      break;
     }  
   }
 }

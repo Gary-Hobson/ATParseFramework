@@ -19,7 +19,7 @@
 				
 #define TRACE_ERROR(fmt, ...)  \
 				do { \
-						printf("error> %s,%d::"fmt, __FILE__,__LINE__,##__VA_ARGS__);\
+						printf("error> %s:%d::"fmt, __FILE__,__LINE__,##__VA_ARGS__);\
 				} while(0)	
 
 

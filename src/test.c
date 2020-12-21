@@ -22,12 +22,13 @@ int main(int argc, char **argv)
 
     pthread_t serial_thread, at_parse_thread;
 
-	char *dev  = "/dev/ttyS1";
+	char *dev  = "/dev/com1";
     at_dev_init(dev);
 
     while (1)
     {   
         at_send_data(cmd,strlen(cmd),1000);
+        TRACE("%s\n",cmd);
         delay(2000);
     }
 }
